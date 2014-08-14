@@ -16,7 +16,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = Seymour.MODID, version = Seymour.VERSION, name = Seymour.MODID)
 public class Seymour {
 	public static final String MODID = "Nations At War - Seymour";
-	public static final String VERSION = "1.0";
+	public static final String VERSION = "1.0.1";
 
 	public static int startHeal;
 	public static int stopHeal;
