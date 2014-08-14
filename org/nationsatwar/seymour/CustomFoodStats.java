@@ -16,7 +16,10 @@ public class CustomFoodStats extends FoodStats {
         int i = par1EntityPlayer.worldObj.difficultySetting;
         this.prevFoodLevel = this.getFoodLevel();
 
-        if (par1EntityPlayer.worldObj.getGameRules().getGameRuleBooleanValue("naturalRegeneration") && this.getFoodLevel() >= Seymour.startHeal && par1EntityPlayer.shouldHeal())
+        if (par1EntityPlayer.worldObj.getGameRules().getGameRuleBooleanValue("naturalRegeneration") && 
+        		this.getFoodLevel() >= Seymour.startHeal && 
+        		this.getFoodLevel() < Seymour.stopHeal &
+        		par1EntityPlayer.shouldHeal())
         {
             ++this.foodTimer;
 

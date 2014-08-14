@@ -17,6 +17,7 @@ public class Seymour extends DummyModContainer {
 	
 	public static int startHeal;
 	public static int stopHeal;
+	private SeymourFeedMeHandler seymourEvents;
 	
 	//for 1.7
 	//SeymourFeedMeHandler seymourEvents;
@@ -25,19 +26,14 @@ public class Seymour extends DummyModContainer {
 	public void preInit(FMLPreInitializationEvent event) {
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
-		startHeal = config.getBlock("StartHealing", 18).getInt();
-		stopHeal = config.getBlock("StopHealing", 20).getInt();
+		startHeal = config.getBlock("StartHealing", 2).getInt();
+		stopHeal = config.getBlock("StopHealing", 18).getInt();
 		config.save();
-	}
-	
-	public boolean registerBus(EventBus bus, LoadController controller) {
-		bus.register(this);
-		return true;
 	}
 	
     @EventHandler
     public void init(FMLInitializationEvent event) {
-    	 //this.seymourEvents = new SeymourFeedMeHandler();
-    	 //MinecraftForge.EVENT_BUS.register(this.seymourEvents);
+    	 this.seymourEvents = new SeymourFeedMeHandler();
+    	 MinecraftForge.EVENT_BUS.register(this.seymourEvents);
     }
 }
