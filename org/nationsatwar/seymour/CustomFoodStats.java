@@ -35,6 +35,7 @@ public class CustomFoodStats extends FoodStats {
 
             if (this.foodTimer >= 80)
             {
+        		System.out.println("Custom update fired " + this.foodLevel + "/" + this.foodExhaustionLevel + "/" + this.foodSaturationLevel);
                 par1EntityPlayer.heal(1.0F);
                 this.addExhaustion(3.0F);
                 this.foodTimer = 0;
