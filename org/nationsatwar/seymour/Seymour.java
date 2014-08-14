@@ -12,22 +12,19 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = Seymour.MODID, version = Seymour.VERSION)
 public class Seymour extends DummyModContainer {
-	public static final String MODID = "Nations At War: Seymour";
-	public static final String VERSION = "1.0";
+	public static final String MODID = "Nations At War - Seymour";
+	public static final String VERSION = "alpha-1.0";
 	
 	public static int startHeal;
 	public static int stopHeal;
 	private SeymourFeedMeHandler seymourEvents;
 	
-	//for 1.7
-	//SeymourFeedMeHandler seymourEvents;
-	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
-		startHeal = config.getBlock("StartHealing", 2).getInt();
-		stopHeal = config.getBlock("StopHealing", 18).getInt();
+		startHeal = config.get("Healrate", "StartHealing", 2).getInt();
+		stopHeal = config.get("Healrate", "StopHealing", 18).getInt();
 		config.save();
 	}
 	
