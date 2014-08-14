@@ -13,6 +13,7 @@ import org.objectweb.asm.ClassWriter;
 
 import net.minecraft.launchwrapper.IClassTransformer;
 
+//This isn't currently used.
 public class FoodStatsTransformer implements IClassTransformer {
 	//MD: ux/a (Luf;)V net/minecraft/util/FoodStats/onUpdate (Lnet/minecraft/entity/player/EntityPlayer;)V
 	

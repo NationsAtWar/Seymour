@@ -5,18 +5,31 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.FoodStats;
 
 public class CustomFoodStats extends FoodStats {
-    private int foodTimer;
-	private int prevFoodLevel;
 
-	/**
+	 /**
      * Handles the food game logic.
      */
+	@Override
     public void onUpdate(EntityPlayer par1EntityPlayer)
     {
         int i = par1EntityPlayer.worldObj.difficultySetting;
-        this.prevFoodLevel = this.getFoodLevel();
+        this.prevFoodLevel = this.foodLevel;
 
-        if (par1EntityPlayer.worldObj.getGameRules().getGameRuleBooleanValue("naturalRegeneration") && this.getFoodLevel() >= Seymour.startHeal && par1EntityPlayer.shouldHeal())
+        if (this.foodExhaustionLevel > 4.0F)
+        {
+            this.foodExhaustionLevel -= 4.0F;
+
+            if (this.foodSaturationLevel > 0.0F)
+            {
+                this.foodSaturationLevel = Math.max(this.foodSaturationLevel - 1.0F, 0.0F);
+            }
+            else if (i > 0)
+            {
+                this.foodLevel = Math.max(this.foodLevel - 1, 0);
+            }
+        }
+
+        if (par1EntityPlayer.worldObj.getGameRules().getGameRuleBooleanValue("naturalRegeneration") && this.foodLevel >= Seymour.startHeal && this.foodLevel <= Seymour.stopHeal && par1EntityPlayer.shouldHeal())
         {
             ++this.foodTimer;
 
@@ -27,7 +40,7 @@ public class CustomFoodStats extends FoodStats {
                 this.foodTimer = 0;
             }
         }
-        else if (this.getFoodLevel() <= 0)
+        else if (this.foodLevel <= 0)
         {
             ++this.foodTimer;
 
