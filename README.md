@@ -8,9 +8,7 @@ You can find the [latest release here](https://github.com/NationsAtWar/Seymour/r
 
 Requirements
 ------------
-Forge
-Minecraft
-Version: 1.6.4
+Forge Version: 1.6.4
 
 Installation
 ------------
