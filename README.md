@@ -6,8 +6,14 @@ Download
 --------
 You can find the [latest release here](https://github.com/NationsAtWar/Seymour/releases/latest).
 
+Requirements
+------------
+Forge
+Minecraft
+Version: 1.6.4
+
 Installation
 ------------
-Requres Forge: Drag it into your mods folder, like any other plugin.
+Drag it into your mods folder, like any other plugin.
 
 Apparently you can add this plugin to your server, and it will work without the clients having it.
