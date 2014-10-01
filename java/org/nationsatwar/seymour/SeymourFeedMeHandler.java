@@ -13,8 +13,6 @@ import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 
 
 public class SeymourFeedMeHandler {
-	CustomFoodStats food = new CustomFoodStats();
-	
 	@ForgeSubscribe
 	public void checkSpawn(EntityJoinWorldEvent event) {
 		if(!(event.entity instanceof EntityPlayer))
